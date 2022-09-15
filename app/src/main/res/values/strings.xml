@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HelloWorld</string>
+    <string name="text_off_a_acheter">A acheter</string>
+    <string name="text_on_achete">acheté</string>
+</resources>
