@@ -16,3 +16,5 @@ rootProject.name = "HelloWorld"
 include ':app'
 include ':fragment'
 include ':recyclerview'
+include ':databinding'
+include ':okhttp'

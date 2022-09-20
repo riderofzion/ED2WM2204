@@ -12,7 +12,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/databinding" />
             <option value="$PROJECT_DIR$/fragment" />
+            <option value="$PROJECT_DIR$/okhttp" />
             <option value="$PROJECT_DIR$/recyclerview" />
           </set>
         </option>

@@ -1,9 +1,12 @@
 package com.quentinrouet.recyclerview;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by quentin for HelloWorld on 15/09/2022.
  */
-public class Article {
+public class Article implements Parcelable {
    String titre, description;
    float prix;
 
@@ -12,6 +15,36 @@ public class Article {
       this.description = description;
       this.prix = prix;
    }
+
+   protected Article(Parcel in) {
+      titre = in.readString();
+      description = in.readString();
+      prix = in.readFloat();
+   }
+
+   @Override
+   public void writeToParcel(Parcel dest, int flags) {
+      dest.writeString(titre);
+      dest.writeString(description);
+      dest.writeFloat(prix);
+   }
+
+   @Override
+   public int describeContents() {
+      return 0;
+   }
+
+   public static final Creator<Article> CREATOR = new Creator<Article>() {
+      @Override
+      public Article createFromParcel(Parcel in) {
+         return new Article(in);
+      }
+
+      @Override
+      public Article[] newArray(int size) {
+         return new Article[size];
+      }
+   };
 
    public String getTitre() {
       return titre;

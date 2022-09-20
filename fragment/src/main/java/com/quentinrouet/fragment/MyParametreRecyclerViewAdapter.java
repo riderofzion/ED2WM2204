@@ -34,12 +34,8 @@ public class MyParametreRecyclerViewAdapter extends RecyclerView.Adapter<MyParam
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        //holder.itemView.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        Navigation.findNavController(v).navigate(R.id.action_parametreFragment_to_detailFragment);
-        //    }
-        //});
+        holder.itemView.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_parametreFragment_to_detailFragment));
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
