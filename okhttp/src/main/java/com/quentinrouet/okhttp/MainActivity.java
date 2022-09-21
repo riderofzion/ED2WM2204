@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -33,6 +36,18 @@ public class MainActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     String bodyStringLuke = response.body().string();
                     Log.i(TAG, "onResponse: "+bodyStringLuke);
+                    try {
+                        JSONObject lukeJson = new JSONObject(bodyStringLuke);
+                        People luke = new People(
+                                lukeJson.getString("name"),
+                                lukeJson.getString("height"),
+                                lukeJson.getString("mass"),
+                                lukeJson.getString("hair_color")
+                        );
+                        Log.i(TAG, "Le prénom du personnage est "+luke.getName());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
